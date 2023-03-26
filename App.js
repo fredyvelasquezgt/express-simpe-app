@@ -17,6 +17,14 @@ app.get('/about', (req, res) => {
     res.send('<h1>About us page</h1>')
 })
 
+//si nada hace match arriba viene a parar aca abajo
+//el orden de esta route importa
+//tiene que ir hasta abajo o si no perjudica todas las routes de arriba
+app.get('*', (req, res) => {
+    res.send('404. This page does not exist. <a href="/"> Go to home </a>')
+})
+
+
 //inicia el port
 app.listen(3000, () => {
     console.log('server started on port 3000');
